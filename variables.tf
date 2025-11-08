@@ -57,3 +57,30 @@ variable "memory" {
   type        = string
   default     = "512"
 }
+
+// ...existing code...
+
+# Auto Scaling Configuration
+variable "min_capacity" {
+  description = "Minimum number of tasks"
+  type        = number
+  default     = 1
+}
+
+variable "max_capacity" {
+  description = "Maximum number of tasks"
+  type        = number
+  default     = 10
+}
+
+variable "cpu_target_value" {
+  description = "Target CPU utilization percentage for auto scaling"
+  type        = number
+  default     = 70
+}
+
+variable "memory_target_value" {
+  description = "Target memory utilization percentage for auto scaling"
+  type        = number
+  default     = 80
+}

@@ -33,9 +33,44 @@ The infrastructure includes:
 ├── alb.tf              # Application Load Balancer configuration
 ├── ecs.tf              # ECS cluster, task definition, and service
 ├── outputs.tf          # Output values
+├── backend.tf          # Terraform Cloud backend configuration
 ├── terraform.tfvars.example  # Example variables file
+├── TERRAFORM_CLOUD_SETUP.md  # Terraform Cloud setup guide
 └── README.md           # This file
 ```
+
+## Backend Options
+
+This project supports multiple backend configurations:
+
+### Option 1: Local Backend (Default)
+State files are stored locally in your project directory. Good for learning and single-user development.
+
+```bash
+# Just run terraform as usual
+terraform init
+terraform apply
+```
+
+### Option 2: Terraform Cloud/Enterprise (Recommended for Teams)
+Remote state storage with collaboration features. See [TERRAFORM_CLOUD_SETUP.md](TERRAFORM_CLOUD_SETUP.md) for detailed setup.
+
+1. Create Terraform Cloud account at https://app.terraform.io
+2. Update `backend.tf` with your organization and workspace name
+3. Run `terraform login` to authenticate
+4. Initialize: `terraform init`
+
+**Quick Setup:**
+```bash
+# Login to Terraform Cloud
+terraform login
+
+# Edit backend.tf with your organization name
+# Then initialize
+terraform init
+```
+
+📖 **Full guide**: See [TERRAFORM_CLOUD_SETUP.md](TERRAFORM_CLOUD_SETUP.md)
 
 ## Usage
 

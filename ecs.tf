@@ -123,8 +123,6 @@ resource "aws_ecs_service" "main" {
   }
 }
 
-// ...existing code...
-
 # ECS Service Auto Scaling Target
 resource "aws_appautoscaling_target" "ecs_target" {
   max_capacity       = var.max_capacity
